@@ -21,11 +21,19 @@ class ArticlesList extends React.Component {
       return <h1>Loading Articles...</h1>;
     }
     return (
-      <ul className='articles-list'>
-        {articles.map((article) => {
-          return <ArticleCard key={article.article_id} {...article} />;
-        })}
-      </ul>
+      <div>
+        <div className='sort-buttons'>
+          <button className='sort-button'>Oldest</button>
+          <button className='sort-button'>Newest</button>
+          <button className='sort-button'>Most Votes</button>
+          <button className='sort-button'>Least Votes</button>
+        </div>
+        <ul className='articles-list'>
+          {articles.map((article) => {
+            return <ArticleCard key={article.article_id} {...article} />;
+          })}
+        </ul>
+      </div>
     );
   }
 }

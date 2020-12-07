@@ -96,3 +96,21 @@ h1 {
   font-family: 'Merriweather', serif;
   text-align: center;
 }
+
+.sort-buttons {
+  text-align: center;
+}
+
+.sort-button {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgb(51, 51, 153);
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 14em;
+  height: 3em;
+  margin: 0.5em;
+  text-align: center;
+}
