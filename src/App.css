@@ -1,13 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(204, 230, 242);
+}
+
+body {
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+  background-color: rgb(204, 230, 242);
+}
+
 .header {
   text-align: left;
   color: white;
-  background-color: rgb(51, 0, 102);
+  background-color: rgb(51, 51, 153);
   font-family: 'Roboto Slab', serif;
-  font-size: 1.4em;
-  padding-left: 0.5em;
-  padding-top: 0em;
+  font-size: 1.1em;
+  padding-left: 1em;
+  padding-bottom: 0.6em;
+  height: 5em;
+  text-decoration: none;
 }
 
 h1 {
@@ -15,5 +35,62 @@ h1 {
 }
 
 .nav {
+  text-align: center;
+}
+
+.articles-list {
+  list-style: none;
+  padding: 0;
+}
+
+.article-card {
+  margin: 2em;
+  padding: 1em;
+  background-color: white;
+  border-radius: 1em;
+}
+
+.article-card-title {
+  margin-top: 2em;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0.2em;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.4em;
+  color: rgb(51, 51, 153);
+  text-decoration: none;
+}
+
+.article-card-title:hover {
+  color: rgb(80, 80, 143);
+}
+
+.article-card-header {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.article-card-footer {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.article {
+  background-color: white;
+  margin: 2em;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.article-title {
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0.2em;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.2em;
+  color: rgb(51, 51, 153);
+  text-decoration: none;
+}
+
+.article-body {
+  font-family: 'Merriweather', serif;
   text-align: center;
 }
