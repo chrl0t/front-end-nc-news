@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
-
-html {
-  margin: 0px;
-  height: 100%;
-  width: 100%;
-  background-color: rgb(204, 230, 242);
-}
 
 body {
   margin: 0px;
@@ -109,8 +100,8 @@ h1 {
   font-family: 'Roboto Slab', serif;
   font-weight: bold;
   border-radius: 5px;
-  width: 14em;
-  height: 3em;
+  width: 12em;
+  height: 2em;
   margin: 0.5em;
   text-align: center;
 }

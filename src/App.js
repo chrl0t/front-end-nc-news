@@ -10,7 +10,7 @@ function App() {
     <div className='body'>
       <Header />
       <Topics />
-      <Router>
+      <Router className='container'>
         <ArticlesList path='/' />
         <Article path='/:article_id' />
       </Router>
