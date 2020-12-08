@@ -47,7 +47,7 @@ h1 {
   text-transform: capitalize;
   padding: 0.2em;
   font-family: 'Roboto Slab', serif;
-  font-size: 1.4em;
+  font-size: 1.6em;
   color: rgb(51, 51, 153);
   text-decoration: none;
 }
@@ -58,12 +58,14 @@ h1 {
 
 .article-card-header {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
 }
 
 .article-card-footer {
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
   color: black;
+  font-size: 1em;
 }
 
 .article {
@@ -90,6 +92,7 @@ h1 {
 
 .sort-buttons {
   text-align: center;
+  margin: 1.6em;
 }
 
 .sort-button {
@@ -104,4 +107,47 @@ h1 {
   height: 2em;
   margin: 0.5em;
   text-align: center;
+}
+
+.article-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.article-footer-comments {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+.loading-message {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.2em;
+}
+
+.error-message {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 4.2em;
+}
+
+.article-footer-votes {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+#plus-emoji {
+  margin: 0.5em;
+  border: none;
+  background: none;
+}
+
+#minus-emoji {
+  border: none;
+  background: none;
 }

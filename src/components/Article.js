@@ -1,38 +1,78 @@
 import React from 'react';
-import axios from 'axios';
+import { fetchArticle } from '../api';
+import Loading from './Loading';
+import ErrorMessage from './ErrorMessage';
+import * as api from '../api';
 
 class Article extends React.Component {
   state = {
     article: {},
-    isLoading: true
+    isLoading: true,
+    hasError: false,
+    errorMessage: ''
   };
 
   componentDidMount() {
-    this.fetchArticle().then((article) => {
-      this.setState({ article, isLoading: false });
-    });
+    fetchArticle(this.props.article_id)
+      .then((article) => {
+        this.setState({ article, isLoading: false });
+      })
+      .catch((err) => {
+        const {
+          response: { status, statusText }
+        } = err;
+        this.setState({
+          hasError: true,
+          errorMessage: `${status} - ${statusText}`,
+          isLoading: false
+        });
+      });
   }
 
-  fetchArticle = () => {
-    const { article_id } = this.props;
-    return axios
-      .get(`https://chazzys-nc-news.herokuapp.com/api/articles/${article_id}`)
-      .then(({ data }) => {
-        return data.article;
-      });
+  handleChangedVotes = (votes) => {
+    const { article } = this.state;
+    api.changeVotes(article.article_id, votes).then((article) => {
+      this.setState({ article });
+    });
   };
 
   render() {
-    const { article, isLoading } = this.state;
+    const { article, isLoading, errorMessage, hasError } = this.state;
     if (isLoading) {
-      return <h1>Loading Article...</h1>;
+      return <Loading />;
+    } else if (hasError) {
+      return <ErrorMessage errorMessage={errorMessage} />;
+    } else {
+      return (
+        <div className='article'>
+          <h1 className='article-title'>{article.title}</h1>
+          <p className='article-body'>{article.body}</p>
+          <br></br>
+          <footer className='article-footer'>
+            <div className='article-footer-comments'>
+              <b>comments:</b> {article.comment_count}
+            </div>
+            <div className='article-vote-buttons'>
+              <button
+                id='plus-emoji'
+                onClick={() => this.handleChangedVotes(1)}
+              >
+                ➕
+              </button>
+              <button
+                id='minus-emoji'
+                onClick={() => this.handleChangedVotes(-1)}
+              >
+                ➖
+              </button>
+            </div>
+            <div className='article-footer-votes'>
+              <b>votes:</b> {article.votes}
+            </div>
+          </footer>
+        </div>
+      );
     }
-    return (
-      <div className='article'>
-        <h1 className='article-title'>{article[0].title}</h1>
-        <p className='article-body'>{article[0].body}</p>
-      </div>
-    );
   }
 }
 

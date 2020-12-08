@@ -9,3 +9,21 @@ export const fetchArticles = (query) => {
       return response.data.articles;
     });
 };
+
+export const fetchArticle = (article_id) => {
+  return axios
+    .get(`https://chazzys-nc-news.herokuapp.com/api/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article[0];
+    });
+};
+
+export const changeVotes = (article_id, votes) => {
+  return axios
+    .patch(`https://chazzys-nc-news.herokuapp.com/api/articles/${article_id}`, {
+      inc_votes: votes
+    })
+    .then(({ data }) => {
+      return data.article[0];
+    });
+};

@@ -9,10 +9,10 @@ function App() {
   return (
     <div className='body'>
       <Header />
-      <Topics />
       <Router className='container'>
         <ArticlesList path='/' />
         <Article path='/:article_id' />
+        <Topics path='/topics' />
       </Router>
     </div>
   );

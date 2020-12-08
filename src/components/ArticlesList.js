@@ -1,6 +1,7 @@
 import React from 'react';
 import * as api from '../api';
 import ArticleCard from './ArticleCard';
+import Loading from './Loading';
 
 class ArticlesList extends React.Component {
   state = {
@@ -11,11 +12,10 @@ class ArticlesList extends React.Component {
   };
 
   componentDidMount() {
-    api
-      .fetchArticles({ sort_by: this.state.sortBy, order: this.state.orderBy })
-      .then((articles) => {
-        this.setState({ articles, isLoading: false });
-      });
+    const { sortBy, sortOrder } = this.state;
+    api.fetchArticles({ sortBy, sortOrder }).then((articles) => {
+      this.setState({ articles, isLoading: false });
+    });
   }
 
   componentDidUpdate(prevProp, prevState) {
@@ -40,7 +40,7 @@ class ArticlesList extends React.Component {
   render() {
     const { articles, isLoading } = this.state;
     if (isLoading) {
-      return <h1>Loading Articles...</h1>;
+      return <Loading />;
     }
     return (
       <div>
@@ -63,7 +63,6 @@ class ArticlesList extends React.Component {
           <button
             className='sort-button'
             id='votes'
-            name='asc'
             onClick={this.updateSorting}
           >
             Most Votes
