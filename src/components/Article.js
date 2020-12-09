@@ -1,8 +1,8 @@
 import React from 'react';
-import { fetchArticle } from '../api';
 import Loading from './Loading';
 import ErrorMessage from './ErrorMessage';
 import * as api from '../api';
+import CommentsList from './CommentsList';
 
 class Article extends React.Component {
   state = {
@@ -13,7 +13,8 @@ class Article extends React.Component {
   };
 
   componentDidMount() {
-    fetchArticle(this.props.article_id)
+    api
+      .fetchArticle(this.props.article_id)
       .then((article) => {
         this.setState({ article, isLoading: false });
       })
@@ -44,32 +45,37 @@ class Article extends React.Component {
       return <ErrorMessage errorMessage={errorMessage} />;
     } else {
       return (
-        <div className='article'>
-          <h1 className='article-title'>{article.title}</h1>
-          <p className='article-body'>{article.body}</p>
-          <br></br>
-          <footer className='article-footer'>
-            <div className='article-footer-comments'>
-              <b>comments:</b> {article.comment_count}
-            </div>
-            <div className='article-vote-buttons'>
-              <button
-                id='plus-emoji'
-                onClick={() => this.handleChangedVotes(1)}
-              >
-                ➕
-              </button>
-              <button
-                id='minus-emoji'
-                onClick={() => this.handleChangedVotes(-1)}
-              >
-                ➖
-              </button>
-            </div>
-            <div className='article-footer-votes'>
-              <b>votes:</b> {article.votes}
-            </div>
-          </footer>
+        <div className='article-page'>
+          <div className='article'>
+            <h1 className='article-title'>{article.title}</h1>
+            <p className='article-body'>{article.body}</p>
+            <br></br>
+            <footer className='article-footer'>
+              <div className='article-footer-comments'>
+                <b>comments:</b> {article.comment_count}
+              </div>
+              <div className='article-vote-buttons'>
+                <button
+                  id='plus-emoji'
+                  onClick={() => this.handleChangedVotes(1)}
+                >
+                  ➕
+                </button>
+                <button
+                  id='minus-emoji'
+                  onClick={() => this.handleChangedVotes(-1)}
+                >
+                  ➖
+                </button>
+              </div>
+              <div className='article-footer-votes'>
+                <b>votes:</b> {article.votes}
+              </div>
+            </footer>
+          </div>
+          <div className='comments-list'>
+            <CommentsList article_id={article.article_id} />
+          </div>
         </div>
       );
     }

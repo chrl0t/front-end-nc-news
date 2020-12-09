@@ -27,3 +27,13 @@ export const changeVotes = (article_id, votes) => {
       return data.article[0];
     });
 };
+
+export const fetchComments = (article_id) => {
+  return axios
+    .get(
+      `https://chazzys-nc-news.herokuapp.com/api/articles/${article_id}/comments`
+    )
+    .then((response) => {
+      return response.data.comments;
+    });
+};
