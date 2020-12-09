@@ -18,7 +18,7 @@ export const fetchArticle = (article_id) => {
     });
 };
 
-export const changeVotes = (article_id, votes) => {
+export const changeArticleVotes = (article_id, votes) => {
   return axios
     .patch(`https://chazzys-nc-news.herokuapp.com/api/articles/${article_id}`, {
       inc_votes: votes

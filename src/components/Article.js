@@ -32,7 +32,8 @@ class Article extends React.Component {
 
   handleChangedVotes = (votes) => {
     const { article } = this.state;
-    api.changeVotes(article.article_id, votes).then((article) => {
+    api.changeArticleVotes(article.article_id, votes).then((article) => {
+      console.log({ article });
       this.setState({ article });
     });
   };

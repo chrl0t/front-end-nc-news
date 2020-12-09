@@ -127,13 +127,6 @@ body {
   font-size: 1em;
 }
 
-.article {
-  background-color: white;
-  margin: 2em;
-  padding: 2em;
-  border-radius: 1em;
-}
-
 .article-title {
   text-align: center;
   text-transform: capitalize;
@@ -147,6 +140,7 @@ body {
 .article-body {
   font-family: 'Merriweather', serif;
   text-align: center;
+  font-size: 1.5em;
 }
 
 .sort-buttons {
@@ -209,4 +203,48 @@ body {
 #minus-emoji {
   border: none;
   background: none;
+}
+
+.article-page {
+  align-items: center;
+  justify-content: center;
+}
+
+.article {
+  background-color: white;
+  margin: 2em auto;
+  width: 80%;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.comment-card {
+  background-color: white;
+  margin: 0.5em auto;
+  width: 80%;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.comment-card-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+.comments-list {
+  padding: 0;
+}
+
+.comment-footer {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+}
+
+.comment-body {
+  font-family: 'Merriweather', serif;
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
 }
