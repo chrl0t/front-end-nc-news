@@ -1,6 +1,7 @@
 import React from 'react';
 import * as api from '../api';
 import CommentCard from './CommentCard';
+import CommentAdder from './CommentAdder';
 
 class CommentsList extends React.Component {
   state = { comments: [] };
@@ -14,11 +15,14 @@ class CommentsList extends React.Component {
   render() {
     const { comments } = this.state;
     return (
-      <ul className='comments-list'>
-        {comments.map((comment) => {
-          return <CommentCard key={comment.comments_id} {...comment} />;
-        })}
-      </ul>
+      <div>
+        <CommentAdder />
+        <ul className='comments-list'>
+          {comments.map((comment) => {
+            return <CommentCard key={comment.comments_id} {...comment} />;
+          })}
+        </ul>
+      </div>
     );
   }
 }

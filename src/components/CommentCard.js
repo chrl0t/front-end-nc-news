@@ -6,10 +6,6 @@ class CommentCard extends React.Component {
     comment: {}
   };
 
-  handleChangedVotes = (votes) => {
-    const { comment } = this.state;
-  };
-
   render() {
     const { author, votes, created_at, body } = this.props;
     return (
@@ -26,15 +22,8 @@ class CommentCard extends React.Component {
         <footer className='comment-footer'>
           <p className='comment-votes'>
             <b>votes:</b> {votes}
-            <button id='plus-emoji' onClick={() => this.handleChangedVotes(1)}>
-              ➕
-            </button>
-            <button
-              id='minus-emoji'
-              onClick={() => this.handleChangedVotes(-1)}
-            >
-              ➖
-            </button>
+            <button id='plus-emoji'>➕</button>
+            <button id='minus-emoji'>➖</button>
           </p>
         </footer>
       </div>
