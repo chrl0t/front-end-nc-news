@@ -21,7 +21,7 @@ body {
   text-decoration: none;
 }
 
-h1 {
+.header-title {
   margin-top: 0;
 }
 
@@ -29,23 +29,82 @@ h1 {
   text-align: center;
 }
 
+.articles-and-topics-container {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 15em auto;
+  grid-template-areas:
+    'articles topics'
+    'articles .';
+}
+
+@media screen and (min-device-width: 1000px) {
+  .articles-and-topics-container {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 18em auto;
+    grid-template-areas:
+      'articles topics'
+      'articles .';
+  }
+}
+
 .articles-list {
   list-style: none;
+  margin: 0;
   padding: 0;
+  float: left;
+  flex-direction: column;
+  display: flex;
+}
+
+.topics {
+  list-style: none;
+  margin-right: 8em;
+  margin-top: 1em;
+  grid-area: topics;
+  flex-direction: column;
+  display: flex;
+  background: white;
+  border-radius: 1em;
+  text-align: center;
+}
+
+.topics-list {
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  padding: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.topics-header {
+  font-family: 'Roboto Slab', serif;
+  padding: 0em;
+  color: rgb(51, 51, 153);
+  text-align: center;
+  font-size: 2.8em;
 }
 
 .article-card {
-  margin: 2em;
+  margin-top: 0;
+  margin-bottom: 2em;
+  margin-left: 8em;
   padding: 1em;
   background-color: white;
   border-radius: 1em;
+  width: 80%;
+  display: inline-block;
 }
 
 .article-card-title {
   margin-top: 2em;
   text-align: center;
   text-transform: capitalize;
-  padding: 0.2em;
+  padding: 0.1em;
   font-family: 'Roboto Slab', serif;
   font-size: 1.6em;
   color: rgb(51, 51, 153);

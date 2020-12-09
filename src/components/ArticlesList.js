@@ -8,7 +8,8 @@ class ArticlesList extends React.Component {
     articles: [],
     isLoading: true,
     sortBy: 'created_at',
-    orderBy: ''
+    orderBy: '',
+    topic: ''
   };
 
   componentDidMount() {
@@ -21,11 +22,13 @@ class ArticlesList extends React.Component {
   componentDidUpdate(prevProp, prevState) {
     const newSortBy = prevState.sortBy !== this.state.sortBy;
     const newOrderBy = prevState.orderBy !== this.state.orderBy;
-    if (newSortBy || newOrderBy) {
+    const newTopic = prevState.topic !== this.state.topic;
+    if (newSortBy || newOrderBy || newTopic) {
       api
         .fetchArticles({
           sort_by: this.state.sortBy,
-          order: this.state.orderBy
+          order: this.state.orderBy,
+          topic: this.state.topic
         })
         .then((articles) => {
           this.setState({ articles, isLoading: false });
@@ -35,6 +38,10 @@ class ArticlesList extends React.Component {
 
   updateSorting = (event) => {
     this.setState({ sortBy: event.target.id, orderBy: event.target.name });
+  };
+
+  updateTopics = (event) => {
+    this.setState({ topic: event.target.id });
   };
 
   render() {
@@ -76,11 +83,31 @@ class ArticlesList extends React.Component {
             Least Votes
           </button>
         </div>
-        <ul className='articles-list'>
-          {articles.map((article) => {
-            return <ArticleCard key={article.article_id} {...article} />;
-          })}
-        </ul>
+        <div className='articles-and-topics-container'>
+          <div className='articles-list'>
+            <ul>
+              {articles.map((article) => {
+                return <ArticleCard key={article.article_id} {...article} />;
+              })}
+            </ul>
+          </div>
+          <div className='topics'>
+            <header className='topics-header'>Popular Topics</header>
+            <ul className='topics-list'>
+              <li id='coding' onClick={this.updateTopics}>
+                👩🏻‍💻 Coding
+              </li>
+              <br></br>
+              <li id='cooking' onClick={this.updateTopics}>
+                👩🏻‍🍳 Cooking
+              </li>
+              <br></br>
+              <li id='football' onClick={this.updateTopics}>
+                ⚽️ Football
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   }
