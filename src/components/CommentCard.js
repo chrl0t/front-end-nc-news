@@ -47,15 +47,19 @@ class CommentCard extends React.Component {
               ➖
             </button>
           </div>
-          <div className='comment-footer-delete'>
-            <button
-              className='delete-button'
-              id={comments_id}
-              onClick={() => this.props.deleteComment(comments_id)}
-            >
-              Delete
-            </button>
-          </div>
+          {author === 'jessjelly' ? (
+            <div className='comment-footer-delete'>
+              <button
+                className='delete-button'
+                id={comments_id}
+                onClick={() => this.props.deleteComment(comments_id)}
+              >
+                Delete
+              </button>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </footer>
       </div>
     );
