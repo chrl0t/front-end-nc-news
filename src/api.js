@@ -67,3 +67,11 @@ export const removeComment = (comments_id) => {
     `https://chazzys-nc-news.herokuapp.com/api/comments/${comments_id}`
   );
 };
+
+export const fetchUser = (username) => {
+  return axios
+    .get(`https://chazzys-nc-news.herokuapp.com/api/users/${username}`)
+    .then(({ data }) => {
+      return data.user[0];
+    });
+};
