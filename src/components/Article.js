@@ -35,6 +35,7 @@ class Article extends React.Component {
     const { article, hasVoted } = this.state;
     if (hasVoted === false) {
       api.changeArticleVotes(article.article_id, votes).then((article) => {
+        article.comment_count = this.state.article.comment_count;
         this.setState({ article, hasVoted: true });
       });
     }
