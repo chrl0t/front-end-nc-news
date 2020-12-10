@@ -9,7 +9,8 @@ class Article extends React.Component {
     article: {},
     isLoading: true,
     hasError: false,
-    errorMessage: ''
+    errorMessage: '',
+    hasVoted: false
   };
 
   componentDidMount() {
@@ -31,10 +32,12 @@ class Article extends React.Component {
   }
 
   handleChangedVotes = (votes) => {
-    const { article } = this.state;
-    api.changeArticleVotes(article.article_id, votes).then((article) => {
-      this.setState({ article });
-    });
+    const { article, hasVoted } = this.state;
+    if (hasVoted === false) {
+      api.changeArticleVotes(article.article_id, votes).then((article) => {
+        this.setState({ article, hasVoted: true });
+      });
+    }
   };
 
   render() {

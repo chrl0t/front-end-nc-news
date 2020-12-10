@@ -37,3 +37,14 @@ export const fetchComments = (article_id) => {
       return response.data.comments;
     });
 };
+
+export const postComment = (comment, article_id) => {
+  return axios
+    .post(
+      `https://chazzys-nc-news.herokuapp.com/api/articles/${article_id}`,
+      comment
+    )
+    .then((response) => {
+      return response.data.newComment[0];
+    });
+};

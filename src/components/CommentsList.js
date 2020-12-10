@@ -12,11 +12,20 @@ class CommentsList extends React.Component {
     });
   }
 
+  addComment = (comment) => {
+    this.setState((currentState) => {
+      return { comments: [comment, ...currentState.comments] };
+    });
+  };
+
   render() {
     const { comments } = this.state;
     return (
       <div>
-        <CommentAdder />
+        <CommentAdder
+          article_id={this.props.article_id}
+          addComment={this.addComment}
+        />
         <ul className='comments-list'>
           {comments.map((comment) => {
             return <CommentCard key={comment.comments_id} {...comment} />;

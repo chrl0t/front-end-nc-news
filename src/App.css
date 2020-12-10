@@ -213,7 +213,7 @@ body {
 .article {
   background-color: white;
   margin: 2em auto;
-  width: 80%;
+  width: 70%;
   border-radius: 1em;
   padding: 1em;
 }
@@ -221,7 +221,7 @@ body {
 .comment-card {
   background-color: white;
   margin: 0.5em auto;
-  width: 80%;
+  width: 70%;
   border-radius: 1em;
   padding: 1em;
 }
@@ -247,4 +247,21 @@ body {
   text-decoration: none;
   color: black;
   font-size: 1em;
+}
+
+.comment-form {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.comment-input-box {
+  width: 70%;
+  margin: 0 auto;
+  height: 5em;
+  font-size: 1.5em;
+  background-color: rgb(220, 220, 220);
+  border-radius: 0.5em;
+  border-style: solid;
+  border-color: rgb(51, 51, 153);
 }
