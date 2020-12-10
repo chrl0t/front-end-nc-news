@@ -7,7 +7,7 @@ const ArticleCard = (props) => {
   return (
     <div className='article-card'>
       <header className='article-card-header'>
-        <b>topic:</b> {topic} <b>user:</b> {author} <b>date: </b>
+        <b>topic:</b> {topic} <b>author:</b> {author} <b>date: </b>
         {format(new Date(created_at), 'dd/MM/yyyy')} <b>votes:</b> {votes}
       </header>
       <div>

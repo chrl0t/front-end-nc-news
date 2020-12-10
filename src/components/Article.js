@@ -3,6 +3,7 @@ import Loading from './Loading';
 import ErrorMessage from './ErrorMessage';
 import * as api from '../api';
 import CommentsList from './CommentsList';
+import { format } from 'date-fns';
 
 class Article extends React.Component {
   state = {
@@ -51,6 +52,14 @@ class Article extends React.Component {
       return (
         <div className='article-page'>
           <div className='article'>
+            <header className='article-header'>
+              <b>topic:</b> {article.topic} <b>author:</b> {article.author}{' '}
+              <b>date: </b>
+              {format(
+                new Date(article.created_at),
+                'dd/MM/yyyy'
+              )} <b>votes:</b> {article.votes}
+            </header>
             <h1 className='article-title'>{article.title}</h1>
             <p className='article-body'>{article.body}</p>
             <br></br>
