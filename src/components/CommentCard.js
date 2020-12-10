@@ -34,7 +34,7 @@ class CommentCard extends React.Component {
           <p>{body}</p>
         </div>
         <footer className='comment-footer'>
-          <p className='comment-votes'>
+          <div className='comment-footer-votes'>
             <b>votes:</b> {votes + this.state.voteChange}
             <button id='plus-emoji' onClick={() => this.handleChangedVotes(1)}>
               ➕
@@ -45,7 +45,10 @@ class CommentCard extends React.Component {
             >
               ➖
             </button>
-          </p>
+          </div>
+          <div className='comment-footer-delete'>
+            <button className='delete-button'>Delete</button>
+          </div>
         </footer>
       </div>
     );
