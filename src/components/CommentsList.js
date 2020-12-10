@@ -20,6 +20,7 @@ class CommentsList extends React.Component {
 
   render() {
     const { comments } = this.state;
+    console.log(this.state);
     return (
       <div>
         <CommentAdder

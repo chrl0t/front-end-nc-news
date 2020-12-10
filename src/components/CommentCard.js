@@ -1,9 +1,17 @@
 import React from 'react';
 import { format } from 'date-fns';
+import * as api from '../api';
 
 class CommentCard extends React.Component {
   state = {
-    comment: {}
+    voteChange: 0
+  };
+
+  handleChangedVotes = (votes) => {
+    this.setState((currentState) => {
+      return { voteChange: currentState.voteChange + votes };
+    });
+    api.changeCommentVotes(votes, this.props.comments_id);
   };
 
   render() {
@@ -21,9 +29,16 @@ class CommentCard extends React.Component {
         </div>
         <footer className='comment-footer'>
           <p className='comment-votes'>
-            <b>votes:</b> {votes}
-            <button id='plus-emoji'>➕</button>
-            <button id='minus-emoji'>➖</button>
+            <b>votes:</b> {votes + this.state.voteChange}
+            <button id='plus-emoji' onClick={() => this.handleChangedVotes(1)}>
+              ➕
+            </button>
+            <button
+              id='minus-emoji'
+              onClick={() => this.handleChangedVotes(-1)}
+            >
+              ➖
+            </button>
           </p>
         </footer>
       </div>

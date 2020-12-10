@@ -48,3 +48,16 @@ export const postComment = (comment, article_id) => {
       return response.data.newComment[0];
     });
 };
+
+export const changeCommentVotes = (votes, comments_id) => {
+  return axios
+    .patch(
+      `https://chazzys-nc-news.herokuapp.com/api/comments/${comments_id}`,
+      {
+        inc_votes: votes
+      }
+    )
+    .then(({ data }) => {
+      return data.comment[0];
+    });
+};

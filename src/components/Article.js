@@ -55,18 +55,15 @@ class Article extends React.Component {
             <header className='article-header'>
               <b>topic:</b> {article.topic} <b>author:</b> {article.author}{' '}
               <b>date: </b>
-              {format(
-                new Date(article.created_at),
-                'dd/MM/yyyy'
-              )} <b>votes:</b> {article.votes}
+              {format(new Date(article.created_at), 'dd/MM/yyyy')}
             </header>
             <h1 className='article-title'>{article.title}</h1>
             <p className='article-body'>{article.body}</p>
             <br></br>
             <footer className='article-footer'>
-              <div className='article-footer-comments'>
+              <a href='#comments-list' className='article-footer-comments'>
                 <b>comments:</b> {article.comment_count}
-              </div>
+              </a>
               <div className='article-vote-buttons'>
                 <button
                   id='plus-emoji'
@@ -86,7 +83,7 @@ class Article extends React.Component {
               </div>
             </footer>
           </div>
-          <div className='comments-list'>
+          <div className='comments-list' id='comments-list'>
             <CommentsList article_id={article.article_id} />
           </div>
         </div>
