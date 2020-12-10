@@ -332,3 +332,7 @@ body {
   margin: 0.5em;
   text-align: center;
 }
+
+.header-welcome {
+  color: rgb(51, 51, 153);
+}
