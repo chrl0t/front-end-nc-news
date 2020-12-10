@@ -5,7 +5,8 @@ import * as api from '../api';
 class CommentCard extends React.Component {
   state = {
     voteChange: 0,
-    hasClicked: false
+    hasClicked: false,
+    user: 'jessjelly'
   };
 
   handleChangedVotes = (votes) => {
@@ -21,7 +22,7 @@ class CommentCard extends React.Component {
   };
 
   render() {
-    const { author, votes, created_at, body } = this.props;
+    const { author, votes, created_at, body, comments_id } = this.props;
     return (
       <div className='comment-card'>
         <header className='comment-card-header'>
@@ -47,7 +48,13 @@ class CommentCard extends React.Component {
             </button>
           </div>
           <div className='comment-footer-delete'>
-            <button className='delete-button'>Delete</button>
+            <button
+              className='delete-button'
+              id={comments_id}
+              onClick={() => this.props.deleteComment(comments_id)}
+            >
+              Delete
+            </button>
           </div>
         </footer>
       </div>

@@ -61,3 +61,9 @@ export const changeCommentVotes = (votes, comments_id) => {
       return data.comment[0];
     });
 };
+
+export const removeComment = (comments_id) => {
+  return axios.delete(
+    `https://chazzys-nc-news.herokuapp.com/api/comments/${comments_id}`
+  );
+};
