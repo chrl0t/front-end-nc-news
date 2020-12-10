@@ -4,14 +4,20 @@ import * as api from '../api';
 
 class CommentCard extends React.Component {
   state = {
-    voteChange: 0
+    voteChange: 0,
+    hasClicked: false
   };
 
   handleChangedVotes = (votes) => {
-    this.setState((currentState) => {
-      return { voteChange: currentState.voteChange + votes };
-    });
-    api.changeCommentVotes(votes, this.props.comments_id);
+    if (this.state.hasClicked === false) {
+      this.setState((currentState) => {
+        return {
+          voteChange: currentState.voteChange + votes,
+          hasClicked: true
+        };
+      });
+      api.changeCommentVotes(votes, this.props.comments_id);
+    }
   };
 
   render() {
