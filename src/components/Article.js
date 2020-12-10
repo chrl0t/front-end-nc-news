@@ -62,7 +62,7 @@ class Article extends React.Component {
             <br></br>
             <footer className='article-footer'>
               <a href='#comments-list' className='article-footer-comments'>
-                <b>comments:</b> {article.comment_count}
+                <b>comments</b>
               </a>
               <div className='article-vote-buttons'>
                 <button
