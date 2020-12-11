@@ -10,17 +10,14 @@ class CommentAdder extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (!this.state.body) {
-      alert('Please fill in text box');
-    } else {
-      api.postComment(this.state, this.props.article_id).then((comment) => {
-        this.props.addComment(comment);
-        this.setState({
-          author: 'jessjelly',
-          body: ''
-        });
+
+    api.postComment(this.state, this.props.article_id).then((comment) => {
+      this.props.addComment(comment);
+      this.setState({
+        author: 'jessjelly',
+        body: ''
       });
-    }
+    });
   };
 
   render() {
@@ -32,9 +29,9 @@ class CommentAdder extends React.Component {
           type='text'
           name='body'
           id='body'
-          required
           onChange={this.handleChange}
           value={body}
+          required
         ></textarea>
         <br></br>
         <input type='submit' className='sort-button' value='Add Comment' />

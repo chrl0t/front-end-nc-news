@@ -30,8 +30,18 @@ body {
 }
 
 .articles-and-topics-container {
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.articles-and-topics-container {
   padding: 0;
   display: grid;
+  grid-template-rows: 5em 18em auto;
+  grid-template-areas:
+    'topics'
+    'articles';
 }
 
 .article-card {
@@ -42,24 +52,27 @@ body {
   background-color: white;
   border-radius: 1em;
   width: 65%;
-  display: inline-block;
+  grid-row: 2;
+  vertical-align: middle;
+}
+
+.topics {
+  list-style: none;
+  margin-top: 1em;
+  background: white;
+  border-radius: 1em;
+  text-align: center;
+  width: 45%;
+  padding: 0;
+  grid-row: 1;
+  vertical-align: middle;
+  display: none;
 }
 
 .articles-list {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.topics {
-  list-style: none;
-  margin-right: 8em;
-  margin-top: 1em;
-  background: white;
-  border-radius: 1em;
-  text-align: center;
-  width: 65%;
-  display: none;
 }
 
 .topics-list {
@@ -71,7 +84,7 @@ body {
   font-weight: bold;
 }
 
-@media screen and (min-device-width: 1400px) {
+@media screen and (min-width: 1300px) {
   .articles-and-topics-container {
     padding: 0;
     display: grid;
@@ -100,6 +113,7 @@ body {
     background: white;
     border-radius: 1em;
     text-align: center;
+    width: 65%;
   }
 
   .topics-list {
@@ -345,8 +359,8 @@ body {
 }
 
 .user-card {
-  margin-top: 8rem;
-  padding: 1em;
+  margin-top: 1rem;
+  padding: 0;
   background-color: white;
   border-radius: 1em;
   width: 70%;
@@ -366,8 +380,8 @@ body {
     padding: 1em;
     background-color: white;
     border-radius: 1em;
-    width: 55%;
-    height: 40rem;
+    width: 75%;
+    height: 30rem;
   }
   .user-card-header {
     font-family: Arial, Helvetica, sans-serif;
@@ -378,12 +392,8 @@ body {
   }
 }
 
-.avatar-section {
-  border: solid;
-}
-
 .avatar {
-  max-width: 50%;
+  max-width: 285px;
   height: auto;
 }
 

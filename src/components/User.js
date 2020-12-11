@@ -9,6 +9,7 @@ class User extends React.Component {
     user: {},
     isLoading: true
   };
+
   componentDidMount() {
     api.fetchUser(this.props.username).then((user) => {
       this.setState({ user, isLoading: false });
