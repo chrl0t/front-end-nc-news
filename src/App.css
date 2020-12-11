@@ -386,3 +386,7 @@ body {
   max-width: 50%;
   height: auto;
 }
+
+.name-links {
+  color: black;
+}

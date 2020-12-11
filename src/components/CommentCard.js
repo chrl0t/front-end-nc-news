@@ -1,6 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import * as api from '../api';
+import { Link } from '@reach/router';
 
 class CommentCard extends React.Component {
   state = {
@@ -27,8 +28,11 @@ class CommentCard extends React.Component {
       <div className='comment-card'>
         <header className='comment-card-header'>
           <div className='comment-card-author-date'>
-            <b>user:</b> {author} <b>date:</b>{' '}
-            {format(new Date(created_at), 'dd/MM/yyyy')}
+            <b>user:</b>{' '}
+            <Link className='name-links' to={`/users/${author}`}>
+              {author}
+            </Link>{' '}
+            <b>date:</b> {format(new Date(created_at), 'dd/MM/yyyy')}
           </div>
         </header>
         <div className='comment-body'>

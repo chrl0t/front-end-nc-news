@@ -4,6 +4,7 @@ import ErrorMessage from './ErrorMessage';
 import * as api from '../api';
 import CommentsList from './CommentsList';
 import { format } from 'date-fns';
+import { Link } from '@reach/router';
 
 class Article extends React.Component {
   state = {
@@ -53,7 +54,10 @@ class Article extends React.Component {
         <div className='article-page'>
           <div className='article'>
             <header className='article-header'>
-              <b>topic:</b> {article.topic} <b>author:</b> {article.author}{' '}
+              <b>topic:</b> {article.topic} <b>author:</b>{' '}
+              <Link className='name-links' to={`/users/${article.author}`}>
+                {article.author}
+              </Link>{' '}
               <b>date: </b>
               {format(new Date(article.created_at), 'dd/MM/yyyy')}
             </header>
