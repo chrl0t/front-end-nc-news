@@ -8,7 +8,7 @@ The backend is an API built with a PSQL database and express server, you can see
 
 ## View The App:
 
-Here is a link to the hosted version of the app:
+Here is a link to the hosted version of the app: https://charlottes-nc-news.netlify.app/
 
 ## Run The App Locally:
 
