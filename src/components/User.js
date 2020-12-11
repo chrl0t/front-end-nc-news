@@ -12,7 +12,6 @@ class User extends React.Component {
   componentDidMount() {
     api.fetchUser(this.props.username).then((user) => {
       this.setState({ user, isLoading: false });
-      console.log(this.state);
     });
   }
 
@@ -24,7 +23,7 @@ class User extends React.Component {
       return (
         <div>
           <UserCard key={user.username} {...user} />
-          <UserArticleList />
+          <UserArticleList username={this.state.user.username} />
         </div>
       );
     }
