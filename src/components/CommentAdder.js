@@ -10,24 +10,29 @@ class CommentAdder extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    api.postComment(this.state, this.props.article_id).then((comment) => {
-      this.props.addComment(comment);
-      this.setState({
-        author: 'jessjelly',
-        body: ''
+    if (!this.state.body) {
+      alert('Please fill in text box');
+    } else {
+      api.postComment(this.state, this.props.article_id).then((comment) => {
+        this.props.addComment(comment);
+        this.setState({
+          author: 'jessjelly',
+          body: ''
+        });
       });
-    });
+    }
   };
 
   render() {
     const { body } = this.state;
     return (
-      <form className='comment-form' onSubmit={this.handleSubmit}>
+      <form className='comment-form' onSubmit={this.handleSubmit} noValidate>
         <textarea
           className='comment-input-box'
           type='text'
           name='body'
           id='body'
+          required
           onChange={this.handleChange}
           value={body}
         ></textarea>

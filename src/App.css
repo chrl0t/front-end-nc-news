@@ -16,7 +16,7 @@ body {
   font-family: 'Roboto Slab', serif;
   font-size: 1.1em;
   padding-left: 1em;
-  padding-bottom: 0.6em;
+  padding-bottom: 0.8em;
   height: 5em;
   text-decoration: none;
 }
@@ -376,6 +376,10 @@ body {
     color: rgb(51, 51, 153);
     text-decoration: underline;
   }
+}
+
+.avatar-section {
+  border: solid;
 }
 
 .avatar {
