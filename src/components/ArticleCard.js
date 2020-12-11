@@ -15,12 +15,12 @@ const ArticleCard = (props) => {
         {format(new Date(created_at), 'dd/MM/yyyy')} <b>votes:</b> {votes}
       </header>
       <div>
-        <Link className='article-card-title' to={`/${article_id}`}>
+        <Link className='article-card-title' to={`/articles/${article_id}`}>
           <h1>{title}</h1>
         </Link>
       </div>
       <footer>
-        <Link className='article-card-footer' to={`/${article_id}`}>
+        <Link className='article-card-footer' to={`/articles/${article_id}`}>
           <b>comments</b>
         </Link>
       </footer>
