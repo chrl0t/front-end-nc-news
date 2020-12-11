@@ -35,3 +35,15 @@ Run the app:
 ### `npm start`
 
 This should open up your locally hosted version of the app! 😃
+
+## About The App:
+
+You will be logged in as a default user (jessjelly) and have the ability to:
+
+- View Articles
+- Sort Articles by Date or Votes in Ascending or Descending Order
+- Sort Articles by a Topic
+- Vote and Comment on Articles
+- Vote on Comments
+- View User Pages and see Articles by said User
+- Delete Comments
