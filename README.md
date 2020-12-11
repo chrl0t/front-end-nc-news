@@ -1,12 +1,12 @@
 # NC News 📰
 
-A full-stack responsive news application.
+A full stack responsive news application.
 
 This is the frontend part of the app, built with React along with some help from axios.
 
 The backend is an API built with a PSQL database and express server.
 
-You can see the code here: https://github.com/chrl0t/nc-news-be
+You can see the code for the backend here: https://github.com/chrl0t/nc-news-be
 
 ## View The App:
 
