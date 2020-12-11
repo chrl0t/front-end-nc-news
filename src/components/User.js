@@ -1,6 +1,7 @@
 import React from 'react';
 import Loading from './Loading';
 import UserCard from './UserCard';
+import UserArticleList from './UserArticleList';
 import * as api from '../api';
 
 class User extends React.Component {
@@ -20,7 +21,12 @@ class User extends React.Component {
     if (isLoading) {
       return <Loading />;
     } else {
-      return <UserCard key={user.username} {...user} />;
+      return (
+        <div>
+          <UserCard key={user.username} {...user} />
+          <UserArticleList />
+        </div>
+      );
     }
   }
 }
