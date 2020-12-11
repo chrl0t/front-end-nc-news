@@ -61,9 +61,7 @@ class CommentCard extends React.Component {
                 Delete
               </button>
             </div>
-          ) : (
-            <div></div>
-          )}
+          ) : null}
         </footer>
       </div>
     );
