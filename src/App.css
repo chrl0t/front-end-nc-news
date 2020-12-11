@@ -351,36 +351,29 @@ body {
   color: rgb(51, 51, 153);
 }
 
-.user-card-page {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .user-card {
-  margin-top: 1rem;
-  padding: 0;
+  margin-top: 0;
+  margin-bottom: 2em;
+  margin-left: 10em;
+  padding: 1em;
   background-color: white;
   border-radius: 1em;
-  width: 70%;
-  height: 45rem;
+  width: 80%;
 }
 
 .user-card-header {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2em;
-  padding-left: 1em;
   color: rgb(51, 51, 153);
+  width: 65%;
 }
 
-@media screen and (min-device-width: 1400px) {
+@media screen and (min-width: 1300px) {
   .user-card {
     margin-top: 8rem;
     padding: 1em;
     background-color: white;
     border-radius: 1em;
-    width: 75%;
     height: 30rem;
   }
   .user-card-header {
@@ -399,4 +392,16 @@ body {
 
 .name-links {
   color: black;
+}
+
+.user-title {
+  text-align: left;
+  color: rgb(51, 51, 153);
+  background-color: white;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.1em;
+  padding-left: 0.6em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  text-decoration: none;
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import Loading from './Loading';
-import UserCard from './UserCard';
 import UserArticleList from './UserArticleList';
 import * as api from '../api';
 
@@ -23,8 +22,8 @@ class User extends React.Component {
     } else {
       return (
         <div>
-          <UserCard key={user.username} {...user} />
-          <UserArticleList username={this.state.user.username} />
+          <h1 className='user-title'>{`Articles by ${user.username}`}</h1>
+          <UserArticleList username={user.username} />
         </div>
       );
     }
