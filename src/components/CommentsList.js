@@ -4,12 +4,27 @@ import CommentCard from './CommentCard';
 import CommentAdder from './CommentAdder';
 
 class CommentsList extends React.Component {
-  state = { comments: [] };
+  state = { comments: [], sortBy: 'created_at', orderBy: '' };
 
   componentDidMount() {
     api.fetchComments(this.props.article_id).then((comments) => {
       this.setState({ comments });
     });
+  }
+
+  componentDidUpdate(prevProp, prevState) {
+    const newSortBy = prevState.sortBy !== this.state.sortBy;
+    const newOrderBy = prevState.orderBy !== this.state.orderBy;
+    if (newSortBy || newOrderBy) {
+      api
+        .fetchComments({
+          sort_by: this.state.sortBy,
+          order: this.state.orderBy
+        })
+        .then((comments) => {
+          this.setState({ comments, isLoading: false });
+        });
+    }
   }
 
   addComment = (comment) => {
